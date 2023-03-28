@@ -28,3 +28,14 @@ def write_results(same_lines, diff_lines):
         diff_file.writelines(diff_lines)
 
 
+def compare_files(file1, file2):
+    """Compares the content of two files and writes the matching
+    and differing lines to "same.txt" and "diff.txt" respectively."""
+    file1_content = read_file(file1)
+    file2_content = read_file(file2)
+    same_lines, diff_lines = compare_lines(file1_content, file2_content)
+    write_results(same_lines, diff_lines)
+
+
+compare_files("file1.txt", "file2.txt")
+
