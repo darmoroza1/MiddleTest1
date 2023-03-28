@@ -20,4 +20,11 @@ def compare_lines(lines1, lines2):
     return same_lines, diff_lines
 
 
+def write_results(same_lines, diff_lines):
+    """Writes the matching and differing lines to "same.txt" and "diff.txt" respectively."""
+    with open("same.txt", "w") as same_file:
+        same_file.writelines(same_lines)
+    with open("diff.txt", "w") as diff_file:
+        diff_file.writelines(diff_lines)
+
 
