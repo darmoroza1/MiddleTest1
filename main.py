@@ -1,41 +1,14 @@
-def read_file(file_path):
-    """Reads the contents of a file and returns them as a list of strings."""
-    with open(file_path, "r") as file:
-        contents = file.readlines()
-    return contents
+from CompareFiles import CompareFiles
+
+check = CompareFiles("file1.txt", "file2.txt")
 
 
-def compare_lines(lines1, lines2):
-    """Compares the content of two files and returns the matching and differing lines."""
-    same_lines = []
-    diff_lines = []
-    for line in lines1:
-        if line in lines2 and line not in same_lines:
-            same_lines.append(line)
-        elif line not in diff_lines:
-            diff_lines.append(line)
-    for line in lines2:
-        if line not in same_lines and line not in diff_lines:
-            diff_lines.append(line)
-    return same_lines, diff_lines
-
-
-def write_results(same_lines, diff_lines):
-    """Writes the matching and differing lines to "same.txt" and "diff.txt" respectively."""
-    with open("same.txt", "w") as same_file:
-        same_file.writelines(same_lines)
-    with open("diff.txt", "w") as diff_file:
-        diff_file.writelines(diff_lines)
-
-
-def compare_files(file1, file2):
+def compare_files():
     """Compares the content of two files and writes the matching
     and differing lines to "same.txt" and "diff.txt" respectively."""
-    file1_content = read_file(file1)
-    file2_content = read_file(file2)
-    same_lines, diff_lines = compare_lines(file1_content, file2_content)
-    write_results(same_lines, diff_lines)
+    same_lines, diff_lines = check.compare_lines()
+    check.write_results(same_lines, diff_lines)
 
 
-compare_files("file1.txt", "file2.txt")
+compare_files()
 
