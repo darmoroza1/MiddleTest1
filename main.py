@@ -18,3 +18,6 @@ def compare_lines(lines1, lines2):
         if line not in same_lines and line not in diff_lines:
             diff_lines.append(line)
     return same_lines, diff_lines
+
+
+
