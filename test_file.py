@@ -2,7 +2,7 @@ import os
 from CompareFiles import CompareFiles
 
 def test_compare_lines():
-    # Set up
+
     file1_contents = ["line 1\n", "line 2\n", "line 3\n"]
     file2_contents = ["line 1\n", "line 3\n", "line 4\n"]
     file1_path = "file1.txt"
